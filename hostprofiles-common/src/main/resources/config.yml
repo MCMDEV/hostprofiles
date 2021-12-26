@@ -1,0 +1,11 @@
+hosts:
+  admin:
+    address: 'admin.localhost'
+    whitelisted: true
+    motd: 'Admin host'
+    disallowedMessage: 'This address is reserved for administrators.'
+    profiles:
+      admin1:
+        owner: '2fbe3e3e-50c3-482c-872b-28386fd91704'
+        uuid: '00000000-0000-0000-0000-000000000000'
+        name: 'Admin'
