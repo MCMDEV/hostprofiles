@@ -31,4 +31,4 @@ hack in there, so I would consider it preferable. The Velocity version uses only
 **Velocity > Paper > Spigot**
 
 Problems or feature requests should be reported as issues on GitHub. If you have any questions or would like to receive
-quick support, you can do here: Coming soon.
+quick support, you can do so on the [CrushedPixel's Developer Den Discord Server](https://discord.gg/EwBqHqZWPJ).
