@@ -7,7 +7,7 @@
     <groupId>de.mcmdev</groupId>
     <artifactId>hostprofiles</artifactId>
     <packaging>pom</packaging>
-    <version>0.1.0</version>
+    <version>0.1.1</version>
     <modules>
         <module>hostprofiles-common</module>
         <module>hostprofiles-bukkit</module>
