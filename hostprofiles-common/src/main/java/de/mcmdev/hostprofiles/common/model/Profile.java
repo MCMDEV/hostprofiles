@@ -13,7 +13,8 @@ public class Profile {
 	private final UUID owner;
 	private final UUID uuid;
 	private final String name;
-	private final String textureValue;
-	private final String textureSignature;
+	private final boolean skinCopy;
+	private final String skinValue;
+	private final String skinSignature;
 
 }

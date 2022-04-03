@@ -10,20 +10,27 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class HostHandler {
 
-	private final List<Host> hosts;
+    private final List<Host> hosts;
 
-	public Host getHostByAddress(String address) {
-		return hosts.stream()
-				.filter(host -> host.getAddress().equals(address))
-				.findFirst()
-				.orElse(null);
-	}
+    public Host getHostByAddress(String address) {
+        return hosts.stream()
+                .filter(host -> host.getAddress().equals(address))
+                .findFirst()
+                .orElse(null);
+    }
 
-	public Profile getProfileByUuid(Host host, UUID uuid) {
-		return host.getProfiles().stream()
-				.filter(profile -> profile.getOwner().equals(uuid))
-				.findFirst()
-				.orElse(null);
-	}
+    public Profile getProfileByOwner(Host host, UUID owner) {
+        return host.getProfiles().stream()
+                .filter(profile -> profile.getOwner().equals(owner))
+                .findFirst()
+                .orElse(null);
+    }
+
+    public Profile getProfileByUuid(Host host, UUID uuid) {
+        return host.getProfiles().stream()
+                .filter(profile -> profile.getUuid().equals(uuid))
+                .findFirst()
+                .orElse(null);
+    }
 
 }

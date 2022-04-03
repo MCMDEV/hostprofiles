@@ -29,9 +29,10 @@ public class ConfigurationHostprofileLoader implements HostprofileLoader {
 				UUID owner = UUID.fromString(profilesSection.getString("owner"));
 				UUID uuid = UUID.fromString(profilesSection.getString("uuid"));
 				String name = profilesSection.getString("name");
-				String textureValue = profilesSection.tryString("textureValue");
-				String textureSignature = profilesSection.tryString("textureSignature");
-				profileList.add(new Profile(profileId, owner, uuid, name, textureValue, textureSignature));
+				boolean skinCopy = profilesSection.getBoolean("skin.copy");
+				String skinValue = profilesSection.tryString("skin.value");
+				String skinSignature = profilesSection.tryString("skin.signature");
+				profileList.add(new Profile(profileId, owner, uuid, name, skinCopy, skinValue, skinSignature));
 			}
 			hostList.add(new Host(hostId, address, whitelisted, disallowedMessage, motd, profileList));
 		}

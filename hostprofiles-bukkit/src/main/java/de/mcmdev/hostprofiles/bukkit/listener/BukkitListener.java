@@ -71,12 +71,12 @@ public class BukkitListener implements Listener {
 		}
 
 		GameProfile newGameProfile = new GameProfile(connectionEvent.getUuid(), connectionEvent.getName());
-		if (connectionEvent.getTextureValue() != null) {
+		if (connectionEvent.getSkinValue() != null) {
 			Property property;
-			if (connectionEvent.getTextureSignature() != null) {
-				property = new Property("textures", connectionEvent.getTextureValue(), connectionEvent.getTextureSignature());
+			if (connectionEvent.getSkinSignature() != null) {
+				property = new Property("textures", connectionEvent.getSkinValue(), connectionEvent.getSkinSignature());
 			} else {
-				property = new Property("textures", connectionEvent.getTextureValue());
+				property = new Property("textures", connectionEvent.getSkinValue());
 			}
 			newGameProfile.getProperties().put("textures", property);
 		}

@@ -11,6 +11,7 @@ import de.mcmdev.hostprofiles.common.HostprofilesPlatform;
 import de.mcmdev.hostprofiles.common.HostprofilesPlugin;
 import de.mcmdev.hostprofiles.common.config.Configuration;
 import de.mcmdev.hostprofiles.common.connection.ConnectionHandler;
+import de.mcmdev.hostprofiles.velocity.command.ReloadprofilesCommand;
 import de.mcmdev.hostprofiles.velocity.config.VelocityConfiguration;
 import de.mcmdev.hostprofiles.velocity.listener.VelocityListener;
 import org.spongepowered.configurate.ConfigurateException;
@@ -43,9 +44,11 @@ public class VelocityHostprofilesPlugin implements HostprofilesPlugin {
 
 	@Subscribe
 	public void onProxyInitialization(ProxyInitializeEvent event) {
-		this.platform = new HostprofilesPlatform(this);
-		this.platform.enable();
-	}
+        this.platform = new HostprofilesPlatform(this);
+        this.platform.enable();
+
+        server.getCommandManager().register("reloadprofiles", new ReloadprofilesCommand(this.platform));
+    }
 
 	@Subscribe
 	public void onProxyShutdown(ProxyShutdownEvent event) {
@@ -59,28 +62,31 @@ public class VelocityHostprofilesPlugin implements HostprofilesPlugin {
 
 	@Override
 	public Configuration loadFile(String name) {
-		Path path = dataDirectory.resolve(name);
-		try {
-			InputStream resourceAsStream = getClass().getResourceAsStream("/" + name);
-			Files.copy(resourceAsStream, path);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		YamlConfigurationLoader build = YamlConfigurationLoader.builder()
-				.nodeStyle(NodeStyle.FLOW)
-				.path(path)
-				.build();
-		try {
-			return new VelocityConfiguration("ROOT", build.load());
-		} catch (ConfigurateException e) {
-			e.printStackTrace();
-		}
+        Path path = dataDirectory.resolve(name);
+
+        if (!Files.exists(path)) {
+            try {
+                InputStream resourceAsStream = getClass().getResourceAsStream("/" + name);
+                Files.copy(resourceAsStream, path);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        YamlConfigurationLoader build = YamlConfigurationLoader.builder()
+                .nodeStyle(NodeStyle.FLOW)
+                .path(path)
+                .build();
+        try {
+            return new VelocityConfiguration("ROOT", build.load());
+        } catch (ConfigurateException e) {
+            e.printStackTrace();
+        }
 		return null;
 	}
 
 	@Override
 	public void listen(ConnectionHandler connectionHandler) {
-		server.getEventManager().register(this, new VelocityListener(connectionHandler));
+        server.getEventManager().register(this, new VelocityListener(platform.getHostHandler(), connectionHandler));
 	}
 
 	@Override

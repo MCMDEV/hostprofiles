@@ -7,5 +7,7 @@ hosts:
     profiles:
       admin1:
         owner: '2fbe3e3e-50c3-482c-872b-28386fd91704'
-        uuid: '00000000-0000-0000-0000-000000000000'
+        uuid: '00000000-0000-0000-0000-000000000001'
         name: 'Admin'
+        skin:
+          copy: true

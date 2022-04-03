@@ -13,7 +13,7 @@ public class ConnectionHandler {
 	public boolean handleLogin(ConnectionEvent connectionEvent) {
 		Host host = hostHandler.getHostByAddress(connectionEvent.getHostname());
 		if (host == null) return false;
-		Profile profile = hostHandler.getProfileByUuid(host, connectionEvent.getUuid());
+		Profile profile = hostHandler.getProfileByOwner(host, connectionEvent.getUuid());
 		if (profile == null) {
 			if (host.isWhitelisted()) {
 				connectionEvent.disallow(host.getDisallowedMessage());
@@ -22,10 +22,11 @@ public class ConnectionHandler {
 		}
 		connectionEvent.setUuid(profile.getUuid());
 		connectionEvent.setName(profile.getName());
-		if (connectionEvent.getTextureValue() != null) {
-			connectionEvent.setTextureValue(profile.getTextureValue());
-			if (connectionEvent.getTextureSignature() != null) {
-				connectionEvent.setTextureSignature(profile.getTextureSignature());
+		connectionEvent.setSkinCopy(profile.isSkinCopy());
+		if (connectionEvent.getSkinValue() != null) {
+			connectionEvent.setSkinValue(profile.getSkinValue());
+			if (connectionEvent.getSkinSignature() != null) {
+				connectionEvent.setSkinSignature(profile.getSkinSignature());
 			}
 		}
 		return true;
