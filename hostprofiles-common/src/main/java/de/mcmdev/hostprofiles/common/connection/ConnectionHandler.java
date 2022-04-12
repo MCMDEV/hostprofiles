@@ -23,9 +23,9 @@ public class ConnectionHandler {
 		connectionEvent.setUuid(profile.getUuid());
 		connectionEvent.setName(profile.getName());
 		connectionEvent.setSkinCopy(profile.isSkinCopy());
-		if (connectionEvent.getSkinValue() != null) {
+		if (profile.getSkinValue() != null) {
 			connectionEvent.setSkinValue(profile.getSkinValue());
-			if (connectionEvent.getSkinSignature() != null) {
+			if (profile.getSkinSignature() != null) {
 				connectionEvent.setSkinSignature(profile.getSkinSignature());
 			}
 		}

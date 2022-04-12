@@ -14,6 +14,8 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerPreLoginEvent;
 
+import java.net.InetSocketAddress;
+
 @RequiredArgsConstructor
 public class PaperListener implements Listener {
 
@@ -54,7 +56,9 @@ public class PaperListener implements Listener {
 
 	@EventHandler
 	public void onPing(PaperServerListPingEvent event) {
-		String hostname = event.getClient().getVirtualHost().getHostName();
+		InetSocketAddress virtualHost = event.getClient().getVirtualHost();
+		if (virtualHost == null) return;
+		String hostname = virtualHost.getHostName();
 		PingEvent pingEvent = new PingEvent(hostname);
 		connectionHandler.handlePing(pingEvent);
 		if (pingEvent.getMotd() != null) {
