@@ -1,13 +1,35 @@
+# The host section defines settings for the individual special addresses
+# players can join. You can define as many hosts as you want.
+# The name (in this case 'admin') doesn't matter and is only there for
+# organization purposes.
+# To create a new host, just copy the admin section, rename it, and change the address
 hosts:
   admin:
+    # This is the address this host is listening to. Please assign an address only once.
     address: 'admin.localhost'
+    # If true, the player will be kicked if no profile is defined.
     whitelisted: true
+    # The MOTD that will be seen when this host is pinged in the server list
     motd: 'Admin host'
+    # The message sent to players when they are kicked because no profile is defined.
+    # Only used when whitelisted is true.
     disallowedMessage: 'This address is reserved for administrators.'
+    # For each host, you can define as many profiles as you want.
+    # Each profile corresponds to one player.
+    # If you have a staff domain, for example, you would create one profile for each staff member.
+    # The name ('admin1') is only for organization purposes.
     profiles:
       admin1:
+        # The real UUID of the player this profile is applied to.
         owner: '2fbe3e3e-50c3-482c-872b-28386fd91704'
+        # The new UUID assigned to the player when joining this host.
         uuid: '00000000-0000-0000-0000-000000000001'
+        # The new name assigned to the player when joining this host.
         name: 'Admin'
         skin:
+          # If true, copies skin data from the real uuid.
           copy: true
+          # The skin value of the player. Only used if copy is false.
+          # value: 'ewogICJ0aW1lc3RhbXAiIDogMTY1MDI5MTkzNjgwNiwKICAicHJvZmlsZUlkIiA6ICIyZmJlM2UzZTUwYzM0ODJjODcyYjI4Mzg2ZmQ5MTcwNCIsCiAgInByb2ZpbGVOYW1lIiA6ICJNQ01ERVYiLAogICJzaWduYXR1cmVSZXF1aXJlZCIgOiB0cnVlLAogICJ0ZXh0dXJlcyIgOiB7CiAgICAiU0tJTiIgOiB7CiAgICAgICJ1cmwiIDogImh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDEzMzkyNTlhNDFkYmY0NWQ5NDM2NTVlZDJhZGE1MmNhZTQ5ZWNhZTYzNTdlNWE2OTE1NjYwNzg5MTA4NTI3MSIsCiAgICAgICJtZXRhZGF0YSIgOiB7CiAgICAgICAgIm1vZGVsIiA6ICJzbGltIgogICAgICB9CiAgICB9CiAgfQp9'
+          # The skin signature of the player. Only used if copy is false.
+          # signature: 'eFJTaudQpDEx8aEEaOIWAOY5YzoieyRXKwWBARhV07IeR/I4Dei3K32KcEbcnE6ul5jWphqBuDuN9KeHMl6pc6d7jvqYRgahsNht6HCQjpZKpya8+5DneSDlZgI8aKv4DlN799mCurmCd2Gc9DmQIr3/dsor0aRej/VTasPEzvezgwXKB601yKtDndcaXLkIbEfZieL1Hqd4dQxOQYyYzLEWfVZWe5NSkb5zndCW7gwUUIncQf4CyNzgkS4uqkUEyeVAGH0RhStDgcwHkXvDVLXMYA0j9cna7Pkcnc/bsQInhsyGBVkI5iIubUdQlJX6VKwDjWCh05bD7dzgFpQswXPWord53TX3G9mzl+YOlnB7dxWlGPXSE+OMl26HkYBWuWHCaDBXA3SeecpKFIPDwP37sMC5E1yg11t1cjIV2JYsAZB/DcYYIuhgvXre8Oo9vSXTo99mgEXdjZrdJ8rBxn+97YoDsjwrMdDumOx9PTDhjKg4mhl5MZu4BIddVblwD91QVcssRT+qr9zx4YOLh94jPqwY5iUzlBMJhUtzI/v7wea10K4cKrqPohxbyUePLjeCdpjAd2pRjcr3S3N433eyeSa+sp8f9aVYv/ZnrwGFdZ507CWM6bknsXOvczpSBMEEMJ/LEyW+34PMvjm7Je/qF3l13Gl1SSbABG2RR7U='

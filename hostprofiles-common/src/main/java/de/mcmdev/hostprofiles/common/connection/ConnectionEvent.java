@@ -23,7 +23,7 @@ public class ConnectionEvent {
 
 	public ConnectionEvent(String hostname, UUID uuid, String name) {
 		this.uuidChanged = false;
-		this.hostname = hostname.split(":")[0];
+		this.hostname = hostname.split(":")[0].replace("FML2", "");
 		this.uuid = uuid;
 		this.name = name;
 	}
