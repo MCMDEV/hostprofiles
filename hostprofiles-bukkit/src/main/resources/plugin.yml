@@ -1,5 +1,5 @@
 name: hostprofiles
-version: 0.1.1
+version: 0.1.2
 author: MCMDEV
 description: Define hosts to which players can connect to have a different profile.
 main: de.mcmdev.hostprofiles.bukkit.BukkitHostprofilesPlugin

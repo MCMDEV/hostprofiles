@@ -25,7 +25,7 @@ import java.nio.file.Path;
 
 @Plugin(
         id = "hostprofiles",
-        version = "0.1.1",
+        version = "0.1.2",
         description = "Define hosts to which players can connect to have a different profile.",
         url = "https://github.com/MCMDEV/hostprofiles",
         authors = "MCMDEV"
