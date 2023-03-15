@@ -19,7 +19,7 @@ You can configure:
 
 ## Platforms
 
-Right now, the plugin is only available for 1.18.1. Supported platforms are Paper and Spigot.
+Right now, the Spigot build is only available for 1.18.1 and will not receive much attention. I recommend using Paper & Velocity, for which the latest release works on the platform versions.
 **If you use Paper you MUST also use the build for Paper, the spigot build is NOT going to work.**
 
 ## Support
@@ -31,4 +31,4 @@ hack in there, so I would consider it preferable. The Velocity version uses only
 **Velocity > Paper > Spigot**
 
 Problems or feature requests should be reported as issues on GitHub. If you have any questions or would like to receive
-quick support, you can do so on the [CrushedPixel's Developer Den Discord Server](https://discord.gg/EwBqHqZWPJ).
+quick support, you join [my personal discord server](https://discord.gg/G4T9aKXJfy).
