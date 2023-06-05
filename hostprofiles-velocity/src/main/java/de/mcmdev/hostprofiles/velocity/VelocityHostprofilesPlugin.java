@@ -25,7 +25,7 @@ import java.nio.file.Path;
 
 @Plugin(
         id = "hostprofiles",
-        version = "0.1.2",
+        version = "0.1.3",
         description = "Define hosts to which players can connect to have a different profile.",
         url = "https://github.com/MCMDEV/hostprofiles",
         authors = "MCMDEV"
@@ -67,6 +67,7 @@ public class VelocityHostprofilesPlugin implements HostprofilesPlugin {
         if (!Files.exists(path)) {
             try {
                 InputStream resourceAsStream = getClass().getResourceAsStream("/" + name);
+				Files.createDirectories(path.getParent());
                 Files.copy(resourceAsStream, path);
             } catch (IOException e) {
                 e.printStackTrace();
